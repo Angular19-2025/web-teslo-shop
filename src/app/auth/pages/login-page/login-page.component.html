@@ -1,0 +1,86 @@
+<form class="flex flex-col gap-2" [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()">
+  <label class="input validator">
+    <svg
+      class="h-[1em] opacity-50"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="2.5"
+        fill="none"
+        stroke="currentColor"
+      >
+        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+      </g>
+    </svg>
+    <input
+      formControlName="email"
+      type="email"
+      placeholder="Correo Electrónico"
+      required
+    />
+  </label>
+  <!-- <div class="validator-hint hidden">Enter valid email address</div> -->
+
+  <label class="input validator">
+    <!-- <label class="input validator"> -->
+    <svg
+      class="h-[1em] opacity-50"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="2.5"
+        fill="none"
+        stroke="currentColor"
+      >
+        <!-- Cuerpo del candado -->
+        <rect x="4" y="10" width="16" height="10" rx="2"></rect>
+        <!-- Arco del candado -->
+        <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+      </g>
+    </svg>
+
+    <input
+      formControlName="password"
+      type="password"
+      required
+      placeholder="Contraseña"
+
+
+      title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+    />
+          <!-- minlength="8" -->
+     <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->
+  </label>
+  <!-- <div class="validator-hint hidden">
+    Must be more than 8 characters, including
+    <br />At least one number <br />At least one lowercase letter <br />At least
+    one uppercase letter
+  </div> -->
+
+  <button type="submit" class="btn btn-secondary">Login</button>
+
+
+  <p class="text-slate-700">
+    ¿No tienes una cuenta?
+    <a routerLink="/auth/register" class="text-accent cursor-pointer"
+      >Crea una aqui</a
+    >
+  </p>
+</form>
+
+@if(hasError()){
+    <div role="alert" class="alert alert-error fade-in fixed bottom-5 right-5 w-52">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <span>Por favor revise la información ingresada</span>
+</div>
+  }
